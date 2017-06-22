@@ -1,0 +1,7 @@
+---
+- name: start jenkins
+  service: name=jenkins state=started enabled=true
+- name: stop jenkins
+  service: name=jenkins state=stopped 
+- name: restart jenkins
+  service: name=jenkins state=restarted

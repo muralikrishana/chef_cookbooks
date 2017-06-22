@@ -1,0 +1,3 @@
+dhcp_package_name:
+ - { dhcp_package_name: dhcp, package_version: "*" }
+dhcp_serivce_name: dhcp

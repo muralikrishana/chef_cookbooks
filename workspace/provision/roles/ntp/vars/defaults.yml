@@ -1,0 +1,4 @@
+ --- 
+  ntp_package_names: 
+   - ntp 
+  ntp_service_name: ntp

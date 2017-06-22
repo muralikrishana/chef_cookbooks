@@ -1,0 +1,56 @@
+handlers 
+
+- name: start ntp
+  service: name=ntpd state=started enabled=yes
+- name: stop ntp
+  service: name=ntpd state=stopped 
+- name: restart ntp 
+  service: name=ntpd state=restart enabled=yes
+
+  tasks 
+
+--- 
+- name: intall the ntp package 
+  package:  name="ntp"  state=present
+  notify:
+    - start ntp
+
+env/hosts
+cenetOs73     ansible_ssh_host=192.168.10.58 ansible_ssh_user=root ansible_ssh_pass=root 
+
+---
+- hosts: all
+  become: yes
+  become_method: su
+  become_user: root
+  roles:
+     - ntp
+  
+for diff OS distribuion 
+  vars:
+  default.yml
+ntp_packages:
+  -{package_name: ntp, package_version: "*"}
+  --- 
+  ntp_package_name:
+   -ntp
+  ntp_service_name: ntp
+
+---
+- hosts: all
+  become: yes
+  become_method: su
+  become_user: root
+  roles:
+     - ntp
+             
+
+             - block:
+  - name: intall the apache package 
+  package: name="{{item.apache_package_name}}-{{item.package_version}}" state=present
+  with_items: "{{apache_package_name}}"
+  notify:
+    - start apache
+  rescue:
+   - name: exception occured 
+     debug: msg="exception occured"

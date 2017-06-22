@@ -1,0 +1,61 @@
+ git add .
+ git commit -m "vagrantfiles"
+ git push
+ git branch
+ git checkout Assignment_1
+ git status
+ git rm assignment_1
+ git status
+ git checkout master
+ git status
+ git branch
+ git branch -d remove
+ git branch -d assignment_1
+ git checkout -b assignment_1
+ git status
+ git add .
+ git status
+ git remote push
+  git status
+ git add Vagrant_
+ git add Vagrant_*
+ git status
+ git whatchanged -1
+ git push
+ git origin assignment_1
+ git remote origin assignment_1
+ git remote set origin assignment_1
+ git status
+ git push origin assignment_1
+ git clone git@bitbucket.org:phenom_murali_kumpatla/phenom_murali.git
+ rm -rf phenom_murali/
+ git clone git@bitbucket.org:phenom_murali_kumpatla/phenom_murali.git
+ git branches
+ git branch
+ cd phenom_murali/
+ git branch
+ git log
+ git chekout assignment_1 master
+ git checkout assignment_1 master
+ git checkout -b assignment_1 master
+ git push
+ git branch
+ git checkout master
+ ls
+ cat README.md
+ git rm README.md
+ git status
+ git push
+ ls -lrt
+ git push
+ git status
+ git commit -m "vag"
+ git push
+ ls -lrt
+ ls
+ git status
+ git branch
+ git push origin master
+ git push origin assignment_1
+
+mkdir -p $myProject/{src,doc/{api,system},tools,db}

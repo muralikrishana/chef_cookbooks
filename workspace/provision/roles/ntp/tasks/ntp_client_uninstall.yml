@@ -1,0 +1,6 @@
+- name: uninstall the ntp package 
+  package: name="{{item.ntp_package_name}}-{{item.package_version}}" state=absent
+  with_items:  "{{ntp_package_name}}"
+  notify:
+    - stop ntp
+    - disable ntp 

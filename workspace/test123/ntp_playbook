@@ -1,0 +1,22 @@
+--- tasks  mail.yml 
+
+  - name: install the ntp package
+    package: name="ntp" state=present
+    notify:
+     - start ntp 
+notify reads the handlers before executing the notify commands.
+   handelers  main.yml 
+   -name: start up 
+    service: name="ntp" state: started enabled=yes 
+
+    - name: enable ntp 
+      service: name="ntp" enabled=yes
+ 
+
+    -name: start up 
+    service: name="ntp" state: stopped 
+    
+    - name:disable ntp 
+      service: name="ntp" state: stopped enabled=no
+ 
+ 

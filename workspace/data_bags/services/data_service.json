@@ -1,0 +1,20 @@
+{
+  "id":"data_service",
+  "_default":{
+    "ecr":{
+      "data_service": {
+        "image_name":"services/data_service",
+        "tag":"latest",
+        "ports":{
+          "80":"9000"
+        },
+        "environment_variables":[
+          "CONF_FILE_NAME=/opt/phenom/data-service/conf/configuration.conf"
+        ],
+        "volumes":{
+          "/etc/localtime":"/etc/localtime"
+        }
+      }
+    }
+  }
+}

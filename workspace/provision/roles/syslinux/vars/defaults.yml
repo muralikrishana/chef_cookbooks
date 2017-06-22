@@ -1,0 +1,4 @@
+ --- 
+  syslinux_package_names: 
+   - syslinux 
+  syslinux_service_name: syslinux

@@ -1,0 +1,6 @@
+- name: install the vsftpd package 
+  package: name="{{item.vsftpd_package_name}}-{{item.package_version}}" state=present
+  with_items:  "{{vsftpd_package_name}}"
+  notify:
+    - start vsftpd
+

@@ -1,0 +1,51 @@
+- block:
+	- name: Add the Jenkins public GPG key to the apt repo
+  	  apt_key: url=http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key state=present
+
+ 	- name: Add Jenkins to the trusted sources list
+  	  apt_repository: repo='deb http://pkg.jenkins-ci.org/debian binary/' state=present
+    - name: Install Jenkins server
+      apt: name=jenkins state=installed
+      notify:
+        - start jenkins
+  when: ansible_distribution == 'CentOS'
+# ---
+# - name: Add the Jenkins ubuntu public GPG key to the apt repo 
+#   apt_key:
+#     url: "{{ jenkins_repo_key_url }}"
+#     state: present
+#   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+# - name: Add Jenkins ubuntu to the trusted sources list
+#   apt_repository: 
+#     repo: "{{ jenkins_repo_url }}"
+#     state: present
+#   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+# - name: Install Jenkins on ubuntu server
+#   package: name=jenkins state=present
+#   notify:
+#     - start jenkins
+#   tags: start_jenkns
+#   when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+# - name: get the Jenkins on RedHat repo .
+#   get_url:
+#     url: "{{ jenkins_repo_url }}"
+#     dest: /etc/yum.repos.d/jenkins.repo
+#   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+# - name: Add Jenkins on RedHat repo GPG key.
+#   rpm_key:
+#     state: present
+#     key: "{{ jenkins_repo_key_url }}"
+#   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+# - name: Install Jenkins on RedHat from repository.
+#   package:
+#     name: jenkins
+#     state: present
+#   notify:
+#     - start jenkins
+#   tags: start_jenkins
+#   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'

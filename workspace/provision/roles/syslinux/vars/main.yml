@@ -1,0 +1,3 @@
+syslinux_package_name:
+ - { syslinux_package_name: syslinux, package_version: "*" }
+syslinux_serivce_name: syslinux

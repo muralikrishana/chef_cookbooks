@@ -1,0 +1,13 @@
+- name: intall the ntp package 
+  package: name="{{item.ntp_package_name}}-{{item.package_version}}" state=present
+  with_items:  "{{ntp_package_name}}"
+  notify:
+    - start ntp
+
+- name: Update Time zone
+  file:
+    src: "/usr/share/zoneinfo/{{time_zone}}"
+    dest: "/etc/localtime"
+    state: link
+    force: yes
+  tags: time-zone-update

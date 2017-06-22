@@ -1,0 +1,5 @@
+#<%=node['phenom']['banner']%>
+filebeat:
+  config_dir: <%=node['filebeat']['conf']['base_directory']%>
+output.logstash:
+  hosts: ["<%=node['filebeat']['logstash']['array']%>"]

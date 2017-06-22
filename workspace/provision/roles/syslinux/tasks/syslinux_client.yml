@@ -1,0 +1,3 @@
+- name: install the syslinux package 
+  package: name="{{item.syslinux_package_name}}-{{item.package_version}}" state=present
+  with_items:  "{{syslinux_package_name}}"

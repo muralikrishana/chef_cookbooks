@@ -1,0 +1,9 @@
+- name : include distribution specific variabels 
+  include_vars: "{{item}}"
+  ignore_errors: yes
+  with_items:
+    - main.yml
+    - "{{ansible_os_family}}.yml"
+
+- include: syslinux_client.yml
+  tags: syslinux_client_install

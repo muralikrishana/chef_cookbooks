@@ -1,0 +1,13 @@
+---
+- name : include distribution specific variabels 
+  include_vars: "{{item}}"
+  ignore_errors: yes
+  with_items:
+     - "{{ansible_os_family}}.yml"
+
+- include: install_jenkins_RedHat.yml
+  when: ansible_distribution == "CentOS" 
+- include: install_jenkins_Debian.yml
+  when: ansible_distribution == "Ubuntu"
+
+# - include: uninstall.yml

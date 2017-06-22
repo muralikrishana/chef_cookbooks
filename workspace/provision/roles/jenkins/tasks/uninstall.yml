@@ -1,0 +1,22 @@
+
+- name: uninstall the Jenkins package 
+  package: name=jenkins state=absent
+  notify:
+    - stop jenkins
+
+- name: remove java  dir contents
+  file:
+    path: "{{ jenks_repo_dir }}"
+    state: absent
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+# - name: remove jenks repo  dir 
+#   file:
+#   	path: "{{ jenks_repo_dir }}"
+#     state: absent
+#     key: "{{ jenkins_repo_key_url }}"
+#   when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+- name: Add Jenkins ubuntu to the trusted sources list
+  apt_repository: 
+  	repo: "{{ jenkins_repo_url }}"
+  	state: absent
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'

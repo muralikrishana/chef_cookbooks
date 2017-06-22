@@ -1,0 +1,10 @@
+update GENEA0084_candidates.EmailCampaignTransactions query: { categoryName: "GENEA0084_574827
+0e180d7905e08fafc9_1487836861", email: "hyukjoooh5@gmail.com", event: "recipients", subEventType: "Subscribed", subEventValue: "GENEA00849466" }
+ update: { $set: { refNum: "GENEA0084", subEventType: "Subscribed", subEventValue: "GENEA00849466", category: [ "GENEA0084_5748270e180d7905e08fa
+fc9_1487836861", "CAMPID:5748270e180d7905e08fafc9", "USERID:2tbeq0ehfr7f9rrm4sd8v9eup4", "CAMPNAME:Similar jobs subscription Campaign", "RECRUIT
+ERSUSERID:NA", "LOCALE:English", "CAMPTYPE:Subscribed", "PREFERENCE:GENEA00849466" ], event: "recipients", email: "hyukjoooh5@gmail.com", catego
+ryName: "GENEA0084_5748270e180d7905e08fafc9_1487836861", campaignId: "5748270e180d7905e08fafc9", userId: "2tbeq0ehfr7f9rrm4sd8v9eup4", campaignN
+ame: "Similar jobs subscription Campaign", locale: "English", recruitersUserId: "NA", campaignType: "Subscribed", createdDate: new Date(14878368
+76594), _id: ObjectId('58ae96ccda56e933db782330') } } keysExamined:0 docsExamined:86694 nMatched:1 nModified:1 upsert:1 keyUpdates:0 writeConfli
+cts:0 numYields:677 locks:{ Global: { acquireCount: { r: 679, w: 679 } }, Database: { acquireCount: { w: 679 } }, Collection: { acquireCount: { 
+w: 678 } }, Metadata: { acquireCount: { w: 1 } }, oplog: { acquireCount: { w: 1 } } } 1069ms

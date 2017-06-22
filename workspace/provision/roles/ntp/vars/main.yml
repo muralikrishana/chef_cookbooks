@@ -1,0 +1,3 @@
+ntp_package_name:
+ - { ntp_package_name: ntp, package_version: "*" }
+ntp_serivce_name: ntp

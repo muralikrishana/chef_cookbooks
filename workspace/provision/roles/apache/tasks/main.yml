@@ -1,0 +1,10 @@
+- name : include distribution specific variabels 
+  include_vars: "{{item}}"
+  ignore_errors: yes
+  with_items:
+    - main.yml
+    - "{{ansible_os_family}}.yml"
+
+- include: apache.yml
+  tags: apache_install.yml
+

@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become_method: sudo
+  become: true
+  roles:
+     - jenkins

@@ -1,0 +1,17 @@
+# - name: intall the apache package 
+#  package: name="{{item.apache_package_name}}-{{item.package_version}}" state=present
+# with_items:  "{{apache_package_name}}"
+# notify:
+#  - start apache
+- block:
+  # - name: include the apache repo
+  #   package: name="epel-release" state=present
+  #   when: ansible_os_family=='RedHat'
+  - name: intall the apache package 
+	package: name="{{item.apache_package_name}}-{{item.package_version}}" state=present
+	with_items:  "{{apache_package_name}}"
+	notify:
+	 - start apache
+  rescue:
+   - name: exception occured
+     debug: msg="exception occured"

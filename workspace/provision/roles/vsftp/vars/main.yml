@@ -1,0 +1,3 @@
+vsftpd_package_name:
+ - { vsftpd_package_name: vsftpd, package_version: "*" }
+vsftpd_serivce_name: vsftpd

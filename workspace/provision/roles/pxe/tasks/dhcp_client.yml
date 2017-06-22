@@ -1,0 +1,6 @@
+- name: install the dhcp package 
+  package: name="{{item.dhcp_package_name}}-{{item.package_version}}" state=present
+  with_items:  "{{dhcp_package_name}}"
+  notify:
+    - start dhcp
+

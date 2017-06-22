@@ -1,0 +1,9 @@
+- name : include distribution specific variabels 
+  include_vars: "{{item}}"
+  ignore_errors: yes
+  with_items:
+    - main.yml
+    - "{{ansible_os_family}}.yml"
+
+- include: vsftpd_client.yml
+  tags: vsftpd_client_install

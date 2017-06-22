@@ -1,0 +1,14 @@
+- name: start dhcp
+  service: name="{{dhcp_service_name}}" state=started enabled=true
+- name: stop dhcp
+  service: name="{{dhcp_service_name}}" state=stopped 
+- name: restart dhcp 
+  service: name="{{dhcp_service_name}}" state=restart 
+- name: enable dhcp 
+  service: name="{{dhcp_service_name}}" enabled=true
+- name: disable dhcp 
+  service: name="{{dhcp_service_name}}" enabled=false
+  
+ 
+
+ 

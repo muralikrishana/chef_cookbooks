@@ -1,0 +1,32 @@
+---
+- name: download file and force basic auth
+  get_url: 
+    url: "{{java_download_uri}}"
+    force_basic_auth: yes
+    headers: 'Cookie:oraclelicense=accept-securebackup-cookie'
+    dest: "{{download_folder}}/{{java_binary_version}}"
+  tags: download_java
+- name: Extract archieve
+  unarchive:
+    src: "{{ download_folder }}/{{ java_binary_version }}" 
+    dest: "{{ download_folder }}"
+    copy: no
+  tags: unarchive_tar
+
+- name: remove java  dir contents
+  file:
+    path: "{{ download_folder }}/{{ java_binary_version }}"
+    state: absent
+  tags: remove_tar_gz
+
+- name: Set Java HOME
+  lineinfile: 
+    dest=~/.bashrc
+    line="export JAVA_HOME={{java_app_dir}}"
+  tags: set_JAVA_HOME
+
+- name: Set JAVA PATH
+  lineinfile: 
+      dest=~/.bashrc
+      line="export PATH=$PATH:'{{ java_app_dir }}/bin'" 
+  tags: set_JAVA_PATH

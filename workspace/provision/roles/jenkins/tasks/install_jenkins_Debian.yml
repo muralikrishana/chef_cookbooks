@@ -1,0 +1,17 @@
+---
+- name: Add the Jenkins ubuntu public GPG key to the apt repo 
+  apt_key:
+    url: "{{ jenkins_repo_key_url }}"
+    state: present
+
+
+- name: Add Jenkins ubuntu to the trusted sources list
+  apt_repository: 
+    repo: "{{ jenkins_repo_url }}"
+    state: present
+
+- name: Install Jenkins on ubuntu server
+  package: name=jenkins state=present
+  notify:
+    - start jenkins
+  tags: start_jenkns

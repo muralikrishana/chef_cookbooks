@@ -1,0 +1,32 @@
+---
+- block:
+    - name: Add the Jenkins ubuntu public GPG key to the apt repo 
+      apt_key:
+        url: "{{ jenkins_repo_key_url }}"
+        state: present
+    - name: Add Jenkins ubuntu to the trusted sources list
+      apt_repository: 
+        repo: "{{ jenkins_repo_url }}"
+        state: present
+        filename: 'jenkins_repo'
+    - name: Install Jenkins on ubuntu server
+      package: name=jenkins state=present
+      notify:
+        - start jenkins
+  when: ansible_distribution == 'Debian' or ansible_distribution == 'Ubuntu'
+
+- block: 
+    - name: get the Jenkins on RedHat repo .
+      get_url:
+        url: "{{ jenkins_repo_url }}"
+        dest: "{{ jenks_repo_dir }}"
+    - name: Add Jenkins on RedHat repo GPG key.
+      rpm_key:
+        state: present
+        key: "{{ jenkins_repo_key_url }}"
+
+    - name: Install Jenkins on RedHat from repository.
+      package: name=jenkins state=present
+      notify:
+        - start jenkins
+  when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'

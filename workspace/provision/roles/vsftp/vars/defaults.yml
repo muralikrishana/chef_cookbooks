@@ -1,0 +1,4 @@
+ --- 
+  vsftpd_package_names: 
+   - vsftpd 
+  vsftpd_service_name: vsftpd
